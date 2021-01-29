@@ -1,8 +1,19 @@
 class Tarea {
 
+    //Esta clase se utiliza, para crear el prototipo (objeto) de tipo Tarea
+    // el cual contiene las propiedades (id, descripcion) implementadas en el constructor de la clase
+
     constructor(id, descripcion) {
         this.id = id;
         this.descripcion = descripcion;
+    }
+
+    getId() {
+        return this.id;
+
+    }
+    getDescripcion() {
+        return this.descripcion;
     }
 
     crearTarea(id, descripcion) {
@@ -19,7 +30,9 @@ class Tarea {
 
 function editarTarea(id, listaTareas, nuevaDescripcion) {
 
-    debugger;
+    //Esta funcion se utiliza para buscar en la lista de 
+    //tareas el id ingresado por el usuario, una vez lo encuentre, edita en esa posicion de la lista
+    //el objeto con la nueva descripcion ingresada por el usuario
 
     for (let tarea of listaTareas) {
         for (let task in tarea) {
@@ -37,6 +50,10 @@ function editarTarea(id, listaTareas, nuevaDescripcion) {
 
 function borrarTarea(id, listaTareas) {
 
+    //Esta funcion se utiliza para buscar en la lista de 
+    //tareas el id ingresado por el usuario, una vez lo encuentre, borra en esa posicion de la lista
+    //el objeto que se habia creado 
+
     for (let tarea of listaTareas) {
         for (let task in tarea) {
             if ((task == "id") && (tarea[task] === id)) {
@@ -53,11 +70,20 @@ function borrarTarea(id, listaTareas) {
 }
 
 function mostrarLista(listaTareas) {
+
+    //Esta funcion se utiliza para mostrar en consola la lista de las tareas
+
     console.log(`Cantidad de Tareas: ${listaTareas.length}`);
     console.table(listaTareas);
 }
 
 function encontrarTarea(id, listaTareas) {
+
+    //Esta funcion se utiliza para buscar en la lista de tareas el id ingresado por el usuario
+    //y en caso de encontrar el id en la lista de objetos, retorna True, en caso contrario, false.
+
+    //Esta funcion tambien me sirve para manejo de errores cometidos al ingresar los datos
+
     let encontrado = false;
     for (let tarea of listaTareas) {
         for (let task in tarea) {
@@ -76,6 +102,8 @@ function encontrarTarea(id, listaTareas) {
 let misTareas = [];
 
 function principal() {
+
+    //Este es la funcion principal del programa!
 
     let contadorTarea = 0;
     let descripcion = '';
@@ -157,6 +185,7 @@ function principal() {
 
 
 }
+
 setTimeout(() => {
     principal()
 }, 7000)
